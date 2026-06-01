@@ -1,0 +1,4 @@
+interface:
+  display_name: "写初稿"
+  short_description: "Write a WeChat draft from a confirmed outline and style DNA."
+  default_prompt: "Use $wechat-draft-writer to write a first draft from my confirmed outline and style DNA."

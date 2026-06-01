@@ -1,0 +1,11 @@
+{
+  "name": "codex-knowledge-workflow-kit",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Kagami's Codex-native local-first knowledge workflow kit.",
+  "license": "MIT",
+  "scripts": {
+    "check:layout": "bash scripts/check_cn_layout.sh",
+    "check:python": "python3 -m py_compile scripts/fetch_aihot.py scripts/flomo_sync_to_inbox.py"
+  }
+}

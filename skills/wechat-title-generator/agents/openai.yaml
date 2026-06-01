@@ -1,0 +1,4 @@
+interface:
+  display_name: "起标题"
+  short_description: "Generate and rank WeChat article title options."
+  default_prompt: "Use $wechat-title-generator to generate 8 title options and recommend the best one."
