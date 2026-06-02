@@ -17,7 +17,7 @@ Codex Knowledge Workflow Kit is a local-first persistent memory layer for AI age
 The project turns one-off agent prompting into repository-backed working memory:
 
 * `AGENTS.md` carries stable rules
-* `99_系统/记忆/` carries durable working memory
+* `99_System/Memory/` carries durable working memory
 * `_state/` carries active project and research continuity
 * Agent Skills route raw inputs into projects, research, wiki, content, or archive
 * QMD gives semantic recall over the vault

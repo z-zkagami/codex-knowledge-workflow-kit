@@ -1,61 +1,22 @@
 ---
 name: wechat-title-generator
-description: 公众号标题与简介生成技能。用于基于已确认的选题、大纲和目标读者，生成 8 个标题候选、3 个简介候选，筛掉低质包装，并推荐 1 个最值得发布的标题和 1 个最合适的简介。适用于写作前或写作后定题阶段，不负责正文。
+description: Generate and rank WeChat-style article titles based on a draft, topic angle, audience, and evidence.
 ---
 
-# Wechat Title Generator
+# WeChat Title Generator
 
-## 目标
-稳定产出高点击意愿、不过度标题党、符合公众号语境的标题和简介，并明确推荐最优解。
+Use this skill when the user asks for article titles, title polishing, or title ranking.
 
-## 输入
-1. 已确认的选题和大纲
-2. 目标读者
-3. 文章目标
-4. 文风 DNA
-5. 可选的风险边界
-6. 可选的发布反馈：如果最近有“标题/简介明显更好”的已发布样本，需同时提供 1-2 篇近期普通样本做对照
+## Workflow
 
-## 工作流
-1. 先提炼文章承诺、情绪点、反差点和读者收益。
-2. 如果存在最近已发布且反馈明显更好的样本，先做一次 `包装反馈回流`：比较高反馈样本与普通样本，提炼 3-5 条“被数据验证有效的标题/简介写法”。
-3. 使用 `references/title-rubric.md` 生成 8 个标题，覆盖不同力度层级。
-4. 基于同一套包装策略生成 3 个简介候选，简介默认用于 frontmatter `summary`、文章导语或分发简介。
-5. 筛除违反硬约束的标题和简介。
-6. 对保留标题逐项评分，并推荐 1 个最佳标题。
-7. 对保留简介逐项评分，并推荐 1 个最佳简介。
-8. 同时给出 1 个更稳妥版本和 1 个更强传播版本。
+1. Read the draft or outline.
+2. Identify the strongest reader problem, surprise, concrete scene, or tool outcome.
+3. Generate multiple title options across practical, narrative, contrarian, and signal-reading styles.
+4. Score titles for clarity, clickability, accuracy, and cold-start accessibility.
+5. Recommend a final title and 2 backups.
 
-## 输出契约
-1. `Packaging Strategy`
-2. `Validated Packaging Levers`（如果有包装反馈回流，列出本次优先使用的 3-5 条有效写法）
-3. `Title Candidates x8`
-4. `Summary Candidates x3`
-5. `Best Title Recommendation`
-6. `Best Summary Recommendation`
-7. `Safer Alternative`
-8. `Stronger Alternative`
-9. `Eliminated Options And Why`
+## Guardrails
 
-## 硬约束
-- 必须生成恰好 8 个标题。
-- 必须生成恰好 3 个简介候选。
-- 标题不能出现引号。
-- 标题不能出现冒号。
-- 标题不能出现破折号。
-- 标题中如果出现两个或以上分句，分句之间必须使用逗号。
-- 标题要有情绪或反差。
-- 标题优先写“习惯变化”“具体动作变化”“具体场景变化”，不要默认从抽象判断起手。
-- 简介优先写“具体处境 + 本文变化点”，不要写成空泛摘要或行业口号。
-- 简介长度默认控制在 18-36 个汉字，除非用户明确要求更长。
-- 可以适度夸张，允许使用高情绪表达，比如“这是我读过最好的一篇文章”“我看到了新世界的大门”“我被震到了”这一类强感受句式。
-- 夸张必须仍然和正文内容一致，不能靠编造收益或虚构结果制造点击。
-- 标题必须和文章真实内容一致。
-- 简介必须和正文真实内容一致。
-
-## 边界
-- 不写大纲，不写正文。
-- 如果主题还没定，先交给 `wechat-topic-outline-planner`。
-
-## 参考文件
-- 标题评分：`references/title-rubric.md`
+- Keep titles faithful to the article.
+- Avoid fabricated metrics and exaggerated claims.
+- Prefer concrete user-facing value over internal jargon.

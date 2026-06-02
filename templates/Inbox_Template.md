@@ -1,28 +1,18 @@
 ---
 type: inbox
-created: <% tp.date.now("YYYY-MM-DD") %>
-title:
-source_type:
-signal_type:
-topic:
-due:
-priority:
+created: {{date:YYYY-MM-DD}}
+source_type: note
 status: pending
-source:
 privacy: internal
-actionability:
-recommended_destination:
-next_step:
-related:
 tags:
   - inbox
 ---
-# [输入标题]
+# Input Title
 
-## 原始输入
+## Original Input
 
-## 为什么现在值得处理
+## Why This Matters Now
 
-## AI 初步判断
+## Initial Agent Judgment
 
-## 我的补充
+## Human Notes

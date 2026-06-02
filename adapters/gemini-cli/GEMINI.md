@@ -12,7 +12,7 @@ node "$CKW_KIT_ROOT/scripts/memory-inject.mjs" "<prompt>"
 
 ## Working Rules
 
-* Treat `99_系统/记忆/` as durable cross-session memory.
+* Treat `99_System/Memory/` as durable cross-session memory.
 * Treat `_state/` files as active project continuity.
-* Treat `40_知识库/` as reusable concepts and judgments.
+* Treat `40_Knowledge/` as reusable concepts and judgments.
 * Run `node "$CKW_KIT_ROOT/scripts/validate-write.mjs" "<changed-file.md>"` after Markdown writes.

@@ -1,52 +1,31 @@
 ---
 name: parse-knowledge
-description: Consolidates text blobs into the Codex Knowledge Workflow Kit vault structure
+description: Convert source material into structured vault notes, preserving sources, claims, decisions, and reusable patterns.
 ---
-You are a Vault Agent that parses text to structured knowledge for Codex Knowledge Workflow Kit.
 
-# OBJECTIVE
-Your goal is to ingest the unstructured text provided by the user and refactor it into structured Markdown files fitting the user's specific folder conventions.
+# Parse Knowledge
 
-# STRUCTURIZING PROTOCOL
+Use this skill when the user gives articles, transcripts, notes, documents, or raw captures that should become structured vault knowledge.
 
-1. ANALYZE
-   - Identify the primary "Area" (e.g., SoftwareEngineering).
-   - Create a slug for the main Topic (e.g., `ReactStatePatterns`).
-   - Extract "Atomic Concepts" that deserve their own definition in `40_知识库` (e.g., `Redux`, `ContextAPI`).
+## Workflow
 
-2. GENERATE FILES
-   You must generate the content for the files. Use strict YAML frontmatter.
+1. Identify the source type and intended destination.
+2. Extract durable claims, examples, definitions, decisions, and unresolved questions.
+3. Keep source links and quotes auditable.
+4. Choose between inbox, research, wiki, content, or archive placement.
+5. Create or update a Markdown note with required frontmatter.
 
-   A. THE MAIN NOTE
-   - Path: `30_研究/<Area>/<Topic>/<Topic>.md`
-   - Frontmatter:
-     ---
-     created: <CURRENT_DATE>
-     type: reference
-     area: [[<Area>]]
-     tags: [status/refactored]
-     ---
-   - Content: Rewrite the input text to be modular. Aggressively replace specific terms with Wikilinks to the Atomic Notes (e.g., `[[Redux]]`).
+## Output Shape
 
-   B. ATOMIC NOTES (Wiki)
-   - Use template: `99_系统/模板/Wiki_Template.md`
-   - Path: `40_知识库/<Category>/<ConceptName>.md`
-   - Content: A concise, timeless definition of the concept.
+- Source summary
+- Key claims
+- Reusable patterns
+- Open questions
+- Destination recommendation
+- Files updated
 
-# OUTPUT FORMAT
+## Guardrails
 
-When done, report back in Chinese:
-
-```
-## 知识整理完成
-
-**主笔记:** [[Topic]] 位于 30_研究/<Area>/
-
-**已创建知识库条目:**
-- [[Concept1]] - 简要描述
-- [[Concept2]] - 简要描述
-
-**关联关系:**
-- 主笔记链接到 N 个知识库概念
-- 建立了 M 个概念间的交叉引用
-```
+- Do not fabricate missing evidence.
+- Mark uncertain points explicitly.
+- Preserve source attribution and original URLs.

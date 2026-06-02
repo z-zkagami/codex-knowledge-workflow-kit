@@ -9,16 +9,16 @@
     "defaultModel": "hf:Qwen/Qwen3-Embedding-0.6B-GGUF/Qwen3-Embedding-0.6B-Q8_0.gguf"
   },
   "roots": {
-    "inbox": "00_收件箱",
-    "daily": "10_日记",
-    "projects": "20_项目",
-    "research": "30_研究",
-    "wiki": "40_知识库",
-    "resources": "50_资源",
-    "content": "60_内容中台",
-    "plans": "90_计划",
-    "system": "99_系统",
-    "memory": "99_系统/记忆"
+    "inbox": "00_Inbox",
+    "daily": "10_Daily",
+    "projects": "20_Projects",
+    "research": "30_Research",
+    "wiki": "40_Knowledge",
+    "resources": "50_Resources",
+    "content": "60_Content",
+    "plans": "90_Plans",
+    "system": "99_System",
+    "memory": "99_System/Memory"
   },
   "infrastructure": [
     "AGENTS.md",
@@ -26,11 +26,12 @@
     "docs/persistent-memory.md",
     "docs/demo-scenario.md",
     "docs/extending.md",
+    "docs/obsidian-plugins.md",
     "adapters/codex/adapter.json",
     "adapters/claude-code/adapter.json",
     "adapters/gemini-cli/adapter.json",
     "adapters/cursor/adapter.json",
-    "scripts/check_cn_layout.sh",
+    "scripts/check_layout.sh",
     "scripts/init-kit.mjs",
     "scripts/session-start.mjs",
     "scripts/classify-message.mjs",
@@ -43,12 +44,12 @@
     "_state/HANDOFF.md"
   ],
   "memoryFiles": [
-    "99_系统/记忆/North Star.md",
-    "99_系统/记忆/Memories.md",
-    "99_系统/记忆/Key Decisions.md",
-    "99_系统/记忆/Patterns.md",
-    "99_系统/记忆/Gotchas.md",
-    "99_系统/记忆/Skills.md"
+    "99_System/Memory/North Star.md",
+    "99_System/Memory/Memories.md",
+    "99_System/Memory/Key Decisions.md",
+    "99_System/Memory/Patterns.md",
+    "99_System/Memory/Gotchas.md",
+    "99_System/Memory/Skills.md"
   ],
   "requiredFrontmatter": {
     "inbox": ["type", "created", "status"],

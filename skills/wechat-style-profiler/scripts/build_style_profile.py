@@ -5,11 +5,11 @@ import re
 from pathlib import Path
 from statistics import mean
 
-SENTENCE_SPLIT = re.compile(r"[。！？!?]+")
+SENTENCE_SPLIT = re.compile(r"[.!?]+")
 WORD_RE = re.compile(r"[\u4e00-\u9fffA-Za-z0-9_]+")
-SECOND_PERSON_RE = re.compile(r"\b你\b|\b你们\b|\byou\b", re.IGNORECASE)
-FIRST_PERSON_PLURAL_RE = re.compile(r"\b我们\b|\bwe\b", re.IGNORECASE)
-QUESTION_RE = re.compile(r"[？?]")
+SECOND_PERSON_RE = re.compile(r"\byou\b", re.IGNORECASE)
+FIRST_PERSON_PLURAL_RE = re.compile(r"\bwe\b", re.IGNORECASE)
+QUESTION_RE = re.compile(r"[?]")
 EM_DASH_RE = re.compile(r"[—–]")
 
 BANNED_PHRASES = [
@@ -81,7 +81,6 @@ def tokenize(text: str) -> list[str]:
 
 def top_terms(texts: list[str], limit: int = 30) -> list[dict]:
     stop = {
-        "的", "了", "是", "我", "你", "我们", "在", "和", "也", "就", "都", "与", "把", "被",
         "to", "the", "a", "an", "is", "are", "and", "or", "of", "in", "for", "on", "with",
     }
     freq = {}

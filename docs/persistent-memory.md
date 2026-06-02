@@ -18,7 +18,7 @@ These rules are committed to Git and shared by every agent using the repository.
 
 ### 2. Vault Memory
 
-`99_系统/记忆/` stores durable working memory:
+`99_System/Memory/` stores durable working memory:
 
 * `North Star.md`: project direction and durable goals
 * `Memories.md`: stable context worth carrying across sessions

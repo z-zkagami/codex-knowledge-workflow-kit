@@ -52,8 +52,8 @@ process.stdout.write("\nNext commands:\n\n");
 process.stdout.write(`export CKW_KIT_ROOT="${repoRoot}"\n`);
 process.stdout.write(`export CKW_VAULT_ROOT="${targetRoot}"\n`);
 process.stdout.write("node \"$CKW_KIT_ROOT/scripts/session-start.mjs\"\n");
-process.stdout.write("node \"$CKW_KIT_ROOT/scripts/memory-inject.mjs\" \"agent workflow capture 长期研究\"\n");
-process.stdout.write("bash \"$CKW_KIT_ROOT/scripts/check_cn_layout.sh\"\n");
+process.stdout.write("node \"$CKW_KIT_ROOT/scripts/memory-inject.mjs\" \"agent workflow capture long-running research\"\n");
+process.stdout.write("bash \"$CKW_KIT_ROOT/scripts/check_layout.sh\"\n");
 
 function parseArgs(items) {
   const parsed = {};
@@ -129,7 +129,7 @@ async function createVaultStructure(root) {
   await createContentStructure(root);
 
   await writeIfMissing(
-    path.join(root, "00_收件箱", "README.md"),
+    path.join(root, "00_Inbox", "README.md"),
     frontmatter("docs", "active", ["inbox"]) +
       "# Inbox\n\nCapture raw inputs here, then route them with `triage-inbox`.\n",
   );
@@ -142,20 +142,20 @@ async function writeVaultManifest(root) {
 }
 
 async function createResourceStructure(root) {
-  const resourcesRoot = path.join(root, "50_资源");
-  for (const dirName of ["Newsletters", "信号简报", "风格参考", "临时收纳"]) {
+  const resourcesRoot = path.join(root, "50_Resources");
+  for (const dirName of ["Newsletters", "Signal_Briefs", "Style_References", "Staging"]) {
     await ensureDirectory(path.join(resourcesRoot, dirName));
   }
   await writeIfMissing(
-    path.join(resourcesRoot, "00_资源工作台.md"),
+    path.join(resourcesRoot, "00_Resources_Workbench.md"),
     frontmatter("resources-workbench", "active", ["resources"]) +
       "# Resources Workbench\n\n## Active Feeds\n\n- AI HOT RSS\n- Manual article captures\n- Video transcripts\n\n## Review Cadence\n\n- Daily: signal brief\n- Weekly: promote durable findings into research or wiki\n",
   );
 }
 
 async function createContentStructure(root) {
-  await ensureDirectory(path.join(root, "60_内容中台", "10_公众号"));
-  await ensureDirectory(path.join(root, "60_内容中台", "20_小红书", "素材池"));
+  await ensureDirectory(path.join(root, "60_Content", "10_WeChat"));
+  await ensureDirectory(path.join(root, "60_Content", "20_Xiaohongshu", "Material_Pool"));
 }
 
 async function installAdapters(root, adapters) {

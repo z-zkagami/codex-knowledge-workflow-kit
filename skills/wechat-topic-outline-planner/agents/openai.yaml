@@ -1,4 +1,3 @@
-interface:
-  display_name: "选题大纲"
-  short_description: "Turn raw materials into a confirmed topic and outline."
-  default_prompt: "Use $wechat-topic-outline-planner to turn my materials into topic angles and a confirmed outline."
+name: wechat-topic-outline-planner
+description: Plan article topics, angles, outlines, and archetypes.
+model: gpt-5

@@ -63,14 +63,14 @@ EOF
 show_paths() {
   ensure_dirs
   cat <<EOF
-项目标识: $PROJECT_SLUG
-共享数据目录: $DATA_ROOT
-共享缓存目录: $CACHE_ROOT
-共享状态目录: $STATE_ROOT
-虚拟环境目录: $VENV_ROOT
-Conda 环境目录: $CONDA_ENV_ROOT
-临时目录: $TMP_ROOT
-字节码缓存目录: $PYCACHE_ROOT
+Project slug: $PROJECT_SLUG
+Shared data directory: $DATA_ROOT
+Shared cache directory: $CACHE_ROOT
+Shared state directory: $STATE_ROOT
+Virtualenv directory: $VENV_ROOT
+Conda environment directory: $CONDA_ENV_ROOT
+Temporary directory: $TMP_ROOT
+Python bytecode cache directory: $PYCACHE_ROOT
 EOF
 }
 
@@ -103,8 +103,8 @@ create_venv() {
     TMPDIR="$TMP_ROOT" \
     uv venv "$env_path" --python "$python_bin"
 
-  echo "已创建虚拟环境: $env_path"
-  echo "激活命令: source \"$env_path/bin/activate\""
+  echo "Created virtualenv: $env_path"
+  echo "Activate with: source \"$env_path/bin/activate\""
 }
 
 create_conda() {
@@ -119,62 +119,62 @@ create_conda() {
     TMPDIR="$TMP_ROOT" \
     micromamba create -y -p "$env_path" "python=$python_version"
 
-  echo "已创建 Conda 环境: $env_path"
-  echo "激活命令: micromamba activate \"$env_path\""
+  echo "Created Conda environment: $env_path"
+  echo "Activate with: micromamba activate \"$env_path\""
 }
 
 remove_venv() {
   local env_name="${1:-}"
 
   if [ -z "$env_name" ]; then
-    echo "请提供要删除的 venv 名称。" >&2
+    echo "Provide the venv name to remove." >&2
     exit 1
   fi
 
   local env_path="$VENV_ROOT/$env_name"
 
   if [ ! -d "$env_path" ]; then
-    echo "未找到虚拟环境: $env_path" >&2
+    echo "Virtualenv not found: $env_path" >&2
     exit 1
   fi
 
   rm -rf "$env_path"
-  echo "已删除虚拟环境: $env_path"
+  echo "Removed virtualenv: $env_path"
 }
 
 remove_conda() {
   local env_name="${1:-}"
 
   if [ -z "$env_name" ]; then
-    echo "请提供要删除的 Conda 环境名称。" >&2
+    echo "Provide the Conda environment name to remove." >&2
     exit 1
   fi
 
   local env_path="$CONDA_ENV_ROOT/$env_name"
 
   if [ ! -d "$env_path" ]; then
-    echo "未找到 Conda 环境: $env_path" >&2
+    echo "Conda environment not found: $env_path" >&2
     exit 1
   fi
 
   micromamba remove -y -p "$env_path" --all
   rm -rf "$env_path"
-  echo "已删除 Conda 环境: $env_path"
+  echo "Removed Conda environment: $env_path"
 }
 
 doctor() {
   ensure_dirs
 
-  echo "python3: $(command -v python3 || echo 未找到)"
+  echo "python3: $(command -v python3 || echo not found)"
   python3 --version 2>/dev/null || true
-  echo "create-venv 默认解释器: $(default_python)"
-  echo "uv: $(command -v uv || echo 未找到)"
+  echo "create-venv default interpreter: $(default_python)"
+  echo "uv: $(command -v uv || echo not found)"
   uv --version 2>/dev/null || true
-  echo "micromamba: $(command -v micromamba || echo 未找到)"
+  echo "micromamba: $(command -v micromamba || echo not found)"
   micromamba --version 2>/dev/null || true
 
   if command -v python3 >/dev/null 2>&1 && [[ "$(command -v python3)" == *"/anaconda3/"* ]]; then
-    echo "提示: 当前 shell 仍然带着旧的 Anaconda PATH；新开一个登录 shell 后会恢复为 Homebrew Python。"
+    echo "Hint: the current shell still includes an older Anaconda PATH. A fresh login shell should restore the expected Python path."
   fi
 
   echo
@@ -188,11 +188,11 @@ doctor_login_shell() {
     SHELL=/bin/zsh \
     PATH=/usr/bin:/bin:/usr/sbin:/sbin \
     /bin/zsh -lic '
-      echo "login shell python3: $(command -v python3 || echo 未找到)"
+      echo "login shell python3: $(command -v python3 || echo not found)"
       python3 --version 2>/dev/null || true
-      echo "login shell uv: $(command -v uv || echo 未找到)"
+      echo "login shell uv: $(command -v uv || echo not found)"
       uv --version 2>/dev/null || true
-      echo "login shell micromamba: $(command -v micromamba || echo 未找到)"
+      echo "login shell micromamba: $(command -v micromamba || echo not found)"
       micromamba --version 2>/dev/null || true
       print -rl -- $path | rg "anaconda3|condabin" || true
     '
@@ -200,18 +200,18 @@ doctor_login_shell() {
 
 usage() {
   cat <<'EOF'
-用法:
+Usage:
   bash scripts/workspace_env.sh exports
   bash scripts/workspace_env.sh show
   bash scripts/workspace_env.sh list
   bash scripts/workspace_env.sh doctor
   bash scripts/workspace_env.sh doctor-login-shell
-  bash scripts/workspace_env.sh create-venv [环境名] [Python解释器]
-  bash scripts/workspace_env.sh create-conda [环境名] [Python版本]
-  bash scripts/workspace_env.sh remove-venv <环境名>
-  bash scripts/workspace_env.sh remove-conda <环境名>
+  bash scripts/workspace_env.sh create-venv [env-name] [python-interpreter]
+  bash scripts/workspace_env.sh create-conda [env-name] [python-version]
+  bash scripts/workspace_env.sh remove-venv <env-name>
+  bash scripts/workspace_env.sh remove-conda <env-name>
 
-示例:
+Examples:
   eval "$(bash scripts/workspace_env.sh exports)"
   bash scripts/workspace_env.sh create-venv codex-docs python3
   bash scripts/workspace_env.sh create-conda codex-cuda 3.11
@@ -258,7 +258,7 @@ case "$command_name" in
     usage
     ;;
   *)
-    echo "未知命令: $command_name" >&2
+    echo "Unknown command: $command_name" >&2
     echo >&2
     usage >&2
     exit 1

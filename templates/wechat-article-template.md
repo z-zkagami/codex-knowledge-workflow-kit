@@ -1,8 +1,8 @@
 ---
-title: 文章标题
+title: Article title
 slug: article-slug
 platform: wechat
-channel: 公众号
+channel: wechat
 author: Kagami
 
 series:
@@ -15,16 +15,16 @@ updated: 2026-03-25
 published:
 archived:
 
-topic: 文章主题
-audience: 目标读者
-goal: 写作目标
-summary: 简短摘要，优先写成“旧烦点 + 新动作”
+topic: Article topic
+audience: Target reader
+goal: Writing goal
+summary: Short summary focused on old friction plus new action
 content_type: narrative
 tone: sharp
-cta: 引导关注与评论互动
+cta: Follow and comment prompt
 
-style_dna: "[[50_资源/风格参考/default-author/style-dna]]"
-outline_source: "[[60_内容中台/00_选题池/选题名称]]"
+style_dna: "[[50_Resources/Style_References/default-author/style-dna]]"
+outline_source: "[[60_Content/00_Topic_Pool/topic-name]]"
 related_daily:
   - "[[2026-03-25]]"
 source_type: original
@@ -60,24 +60,24 @@ owner: Kagami
 reviewer:
 ---
 
-# 文章标题
+# Article Title
 
-## 摘要
+## Summary
 
-[简短、带一点悬念的摘要。优先写成“以前一直烦 X，这次我第一步没做 Y”。]
+[Short summary with light tension. Prefer a concrete old-friction and new-action framing.]
 
-## 正文
+## Body
 
-[在这里写正文]
+[Write the article body here.]
 
-## 配图说明
+## Image Notes
 
-- 封面图:
-- 插图 1:
-- 插图 2:
+- Cover:
+- Inline image 1:
+- Inline image 2:
 
-## 发布备注
+## Publishing Notes
 
-- 草稿箱链接:
-- 发布结果:
-- 复盘:
+- Draft link:
+- Publishing result:
+- Retrospective:

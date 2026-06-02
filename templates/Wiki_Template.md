@@ -1,29 +1,30 @@
 ---
-area:
-tags: []
+type: wiki
 created: {{date:YYYY-MM-DD}}
+tags:
+  - wiki
 ---
-# [概念名称]
+# Concept Name
 
-## 定义
+## Definition
 
-[概念的清晰、简洁定义]
+Write a clear, concise definition.
 
-## 要点
+## Key Points
 
-- [主要特征或功能]
-- [重要方面]
-- [值得注意的细节]
+- Main feature or function.
+- Important aspect.
+- Notable detail.
 
-## 示例
+## Example
 
-[实际示例或用例]
+Add a practical example or use case.
 
-## 相关概念
+## Related Concepts
 
-- [[相关概念1]]
-- [[相关概念2]]
+- [[Related Concept 1]]
+- [[Related Concept 2]]
 
-## 参考资料
+## References
 
-- [来源或文档]
+- Source or document.

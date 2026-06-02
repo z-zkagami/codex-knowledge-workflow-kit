@@ -1,38 +1,34 @@
-# AI 记忆上下文包模板
+# AI Memory Context Pack Template
 
-适用场景：新窗口、临时关闭长期记忆、跨工具协作、担心上下文漂移时。
+Use this when opening a new agent window, working across tools, temporarily disabling native memory, or preventing context drift.
 
-```markdown
-当前目标：
+## Context
 
-当前目录：
+Current goal:
 
-已有规则：
-- 
+Current directory:
 
-输入材料：
-- 
+Existing rules:
 
-已有判断：
-- 
+Input material:
 
-输出要求：
+Existing decisions:
 
-风险边界：
-- 
+Output requirements:
 
-验证方式：
-- 
+Risk boundaries:
 
-请执行：
-- 先识别关键约束和禁止项。
-- 需要查知识库时优先使用 QMD。
-- 开放性判断补充反证、替代路径和待验证事实。
-- 严谨执行任务输出文件、验证结果和剩余风险。
-```
+Verification method:
 
-## 使用建议
+## Instructions
 
-- 只填会改变输出质量的信息。
-- 敏感事实写在本次上下文，避免进入长期记忆。
-- 项目状态优先写入 `_state/`，稳定方法再晋升到 `40_知识库/`。
+- Identify key constraints and forbidden actions first.
+- Use QMD first when vault search is needed.
+- For open-ended judgments, include counter-evidence, alternative paths, and facts still needing verification.
+- Finish with changed files, verification results, and remaining risks.
+
+## Usage Notes
+
+- Fill only information that changes output quality.
+- Put sensitive facts in the current prompt, not durable memory.
+- Put active project state in `_state/`; promote stable methods to `40_Knowledge/`.

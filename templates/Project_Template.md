@@ -1,58 +1,49 @@
 ---
-title: 项目名称
-type: project
-status: active
-area: "[[领域名称]]"
+title: Project Name
 created: {{date:YYYY-MM-DD}}
-due:
-priority:
-tags: []
+status: active
+area: "[[Area Name]]"
+tags:
+  - project
 ---
-# 项目名称
+# Project Name
 
-## 背景
+## Background
 
-**目标:** [描述成功是什么样子的一句话]
+**Goal:** Describe success in one sentence.
 
-**成功指标:**
-- [ ] 指标1
-- [ ] 指标2
-- [ ] 指标3
+**Success Criteria:**
+- [ ] Metric 1
+- [ ] Metric 2
+- [ ] Metric 3
 
-**限制条件:**
-- 时间线:
-- 资源:
-- 依赖项:
+**Constraints:**
+- Timeline:
+- Resources:
+- Dependencies:
 
----
+## Actions
 
-## 行动
+### Phase 1: Phase Name
 
-### 阶段1: [阶段名称]
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
 
-- [ ] 任务1
-- [ ] 任务2
-- [ ] 任务3
+### Phase 2: Phase Name
 
-### 阶段2: [阶段名称]
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
 
-- [ ] 任务1
-- [ ] 任务2
-- [ ] 任务3
+## Progress
 
----
+- {{date:YYYY-MM-DD}}: [[{{date:YYYY-MM-DD}}]] - Project started.
 
-## 进展
-
-- {{date:YYYY-MM-DD}}: [[{{date:YYYY-MM-DD}}]] - 项目启动
-
----
-
-## 相关
+## Related
 
 -
 
----
+## Notes
 
-## 备注
-
+-

@@ -1,55 +1,45 @@
 ---
-date: {{date}}
-day: {{date:dddd}}
-week: {{date:ww}}
+type: daily
+created: {{date:YYYY-MM-DD}}
+tags:
+  - daily
 ---
 # {{date:YYYY-MM-DD}}
 
-## 待办事项
+## Tasks
+
 - [ ]
-- [ ]
-- [ ]
 
-## 日志
-*
+## Log
 
-## 今日折腾存档
+## Raw Work Capture
 
-> 这里只做 `3 分钟存档`，不是写文章。
-> 原则：不整理、不修饰，先把热乎的东西存下来。
+> Use this as a three-minute capture area. Keep it raw.
+> Save the hot traces first; organize later.
 
-### 这轮想搞什么
+### What I Tried
 
-- 
+### Blockers, Surprises, Turns
 
-### 卡点 / 意外 / 转折
+### Current Judgment
 
-- 
+### Source Material
 
-### 当下判断
+- Terminal output or command history:
+- Error or success screenshots:
+- Agent conversation snippets:
+- Voice memo:
 
-- 
+### One Sentence To Preserve
 
-### 原始素材入口
+- If this becomes an article later, the sentence worth keeping is:
 
-- 终端输出 / 命令历史：
-- 报错截图 / 成功截图：
-- AI 对话片段：
-- 语音备忘：
+## Notes
 
-### 一句话留档
+## Agent Summary
 
-- 如果未来要写文章，这轮最值得记住的一句话是：
+## Related Projects
 
-## 备注
+## Energy
 
-
-## AI 摘要
-
-
-## 相关项目
--
-
----
-
-**精力:** ⚡⚡⚡⚡⚡ | **专注:** 🎯🎯🎯🎯🎯
+Energy: 1-5 | Focus: 1-5

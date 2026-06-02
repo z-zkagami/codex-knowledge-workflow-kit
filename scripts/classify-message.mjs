@@ -23,32 +23,32 @@ try {
 const rules = [
   {
     workflow: "daily-signals",
-    keywords: ["信号", "newsletter", "AI-HOT", "日报", "今天值得看"],
+    keywords: ["signal", "signals", "newsletter", "AI-HOT", "daily brief", "worth reading"],
     hint: "Build a daily signal brief and route high-value items.",
   },
   {
     workflow: "triage-inbox",
-    keywords: ["收件箱", "inbox", "分诊", "整理输入", "处理素材", "capture", "captured", "route", "路由"],
+    keywords: ["Inbox", "inbox", "triage", "input", "material", "capture", "captured", "route", "routing"],
     hint: "Route pending captures into action, project, research, wiki, content, or archive.",
   },
   {
     workflow: "llm-wiki",
-    keywords: ["长期主题", "wiki", "持续研究", "主题工作区"],
+    keywords: ["long-running topic", "wiki", "persistent topic", "topic workspace"],
     hint: "Create or update a persistent topic workspace.",
   },
   {
     workflow: "research",
-    keywords: ["研究", "调研", "deep dive", "资料", "分析"],
+    keywords: ["research", "deep dive", "source", "sources", "analysis", "investigate"],
     hint: "Plan and execute a research pass.",
   },
   {
     workflow: "wechat-*",
-    keywords: ["公众号", "选题", "大纲", "初稿", "标题", "文风"],
+    keywords: ["wechat", "article", "topic", "outline", "draft", "title", "style"],
     hint: "Use material intake, topic planning, style profiling, draft writing, or title generation.",
   },
   {
     workflow: "archive",
-    keywords: ["归档", "archive", "完成", "清理"],
+    keywords: ["Archive", "archive", "done", "complete", "cleanup", "close"],
     hint: "Move completed work out of active spaces.",
   },
 ];

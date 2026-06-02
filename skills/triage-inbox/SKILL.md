@@ -1,99 +1,41 @@
 ---
 name: triage-inbox
-description: Use when new items in 00_收件箱 should be routed into action, project, research, knowledge, content, or archive instead of sitting idle
+description: Route pending inbox captures into action, project, research, wiki, content, or archive destinations inside the vault.
 ---
 
-# Triage Inbox
+# Inbox Triage
 
-你是 Codex Knowledge Workflow Kit 的收件箱分诊员。目标不是“整理得更好看”，而是让新输入尽快进入明确去向。
+Use this skill when the user asks to process raw captures, clean the inbox, route material, or decide what a note should become.
 
-## 何时使用
+## Routing Destinations
 
-- `00_收件箱/` 有 `status: pending` 或 `status: captured` 的新条目
-- flomo、DayOne、网页剪藏、PDF、社媒内容已经进入主库，等待处理
-- 用户不想让输入长期停留在收件箱
+- `action`: a concrete next step or checklist item.
+- `project`: work that belongs in `20_Projects/`.
+- `research`: material that needs a durable topic workspace in `30_Research/`.
+- `wiki`: reusable knowledge that belongs in `40_Knowledge/`.
+- `content`: publishable material that belongs in `60_Content/`.
+- `archive`: completed, stale, or low-value material.
 
-## 允许去向
+## Workflow
 
-每个条目必须有一个主去向：
+1. Read the inbox note and frontmatter.
+2. Identify source type, topic, urgency, privacy level, and actionability.
+3. Choose a destination and explain the routing in one short note.
+4. Update frontmatter fields: `status`, `recommended_destination`, `next_step`, and `related` when useful.
+5. Move or link the note only after the destination is clear.
 
-- `待办`
-- `项目`
-- `研究专题`
-- `原子知识卡`
-- `内容素材`
-- `归档`
+## Output
 
-不要输出“先放着看看”。
+Provide:
 
-## 分诊步骤
+- Routing decision
+- Reason
+- Destination path
+- Next action
+- Validation result when a file changed
 
-### 1. 收集待处理条目
+## Guardrails
 
-- 读取 `00_收件箱/` 下 `status: pending` 或 `status: captured` 的文件
-- 如果旧文件缺少字段，用 `99_系统/模板/Inbox_Template.md` 的字段补齐
-
-### 2. 判断条目类型
-
-至少识别以下属性：
-
-- `source_type`: idea | article | pdf | note | diary | social | digest
-- `signal_type`: 新闻 | 观点 | 用法 | 机会 | 问题 | 灵感
-- `privacy`: private | internal | public-ready
-
-### 3. 给出主去向
-
-使用以下判断标准：
-
-- **待办**: 1 步到 3 步内能做完，且价值在执行而不在沉淀
-- **项目**: 需要连续推进、存在里程碑、未来会反复回看
-- **研究专题**: 需要持续收集来源、提炼概念、形成系统理解
-- **原子知识卡**: 已经足够稳定，可沉淀成可复用方法 / 判断 / 定义
-- **内容素材**: 有传播价值、能进入选题池，但暂时不必升格为知识卡
-- **归档**: 当前无行动价值，也不值得继续处理
-
-### 4. 执行低风险动作
-
-- **待办**: 添加到当天 `10_日记/YYYY-MM-DD.md` 的待办事项，并保留来源链接
-- **项目**: 为该条目创建 `90_计划/Plan_YYYY-MM-DD_Kickoff_<主题>.md` 草案，或调用 `kickoff`
-- **研究专题**: 在 `30_研究/` 下创建主题工作区入口文件 `00_索引.md`
-- **原子知识卡**: 新建或更新 `40_知识库/` 对应条目
-- **内容素材**: 写入 `60_内容中台/00_选题池/`
-- **归档**: 标记原因，准备后续归档
-
-### 5. 写入分诊日志
-
-- 路径: `99_系统/数据库/收件箱分诊/YYYY-MM-DD-分诊.md`
-- 使用模板: `99_系统/模板/收件箱分诊模板.md`
-- 记录每个条目的去向、置信度、原因、下一步
-
-## 重要规则
-
-- 默认保留原始输入，不要直接覆盖原文
-- 默认每条只给一个主去向，避免同时塞进 3 个地方
-- 有内容价值的条目要优先判断能否进入 `60_内容中台/00_选题池/`
-- 有方法价值的条目要优先判断能否进入 `40_知识库/`
-- 如果条目涉及隐私或工作敏感信息，保留在内部层，不直接推进到公开内容层
-
-## 输出格式
-
-用中文简洁汇报：
-
-```markdown
-## 收件箱分诊完成
-
-**已处理:** N 条
-
-**去向统计**
-- 待办: N
-- 项目: N
-- 研究专题: N
-- 原子知识卡: N
-- 内容素材: N
-- 归档: N
-
-**最值得你现在处理的 3 条**
-- [[条目1]] → 去向 + 原因
-- [[条目2]] → 去向 + 原因
-- [[条目3]] → 去向 + 原因
-```
+- Keep raw evidence intact.
+- Do not promote private or sensitive material into public demo areas.
+- Prefer linking before copying when the source should remain auditable.

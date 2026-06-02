@@ -1,113 +1,33 @@
 ---
 name: daily-signals
-description: Use when the user wants a daily AI signal brief covering news, KOL viewpoints, practical use cases, and opportunity angles instead of only generic headlines
+description: Capture public AI/newsletter signals into the vault, produce a daily signal brief, and route durable findings into inbox, research, wiki, content, or archive.
 ---
 
 # Daily Signals
 
-你是 Codex Knowledge Workflow Kit 的每日情报编辑。目标不是做一份“AI 新闻汇总”，而是帮用户从当天信号里挑出最值得进入系统的部分。
+Use this skill when the user asks to review public AI signals, newsletters, RSS items, daily digests, or items worth reading today.
 
-## 何时使用
+## Workflow
 
-- 用户想知道今天 AI 圈有哪些值得关注的新变化
-- 用户想看头部 KOL 的新观点，而不只是新闻标题
-- 用户想知道别人是怎么把 AI 真用起来的
-- 用户想把外部信号转成工作改进、内容选题或小机会
+1. Collect public sources or run the bundled RSS fetcher when appropriate.
+2. Write raw captures under `50_Resources/Newsletters/` or `50_Resources/Signal_Briefs/`.
+3. Deduplicate obvious repeats and group items by theme.
+4. Mark each item as `research`, `wiki`, `content`, `archive`, or `ignore`.
+5. Promote durable items into `00_Inbox/`, a research workspace, or a wiki note.
 
-## 读取配置
+## Output
 
-先读取：
+Return a compact brief:
 
-- `99_系统/配置/信号源配置.md`
+- Best item today
+- Useful scan items
+- Content or research opportunities
+- Files created or updated
+- Follow-up routing
 
-它决定了哪些主题和信号优先级更高。
+## Guardrails
 
-## 信号来源
-
-至少覆盖 4 层：
-
-### 1. 新闻
-
-- 调用 `ai-newsletters`
-- 调用 `ai-products`
-
-### 2. KOL 观点
-
-- 从用户关注的 X / 博客 / 播客 / 长文来源中抓取高价值观点
-- 重点不是“谁发了”，而是“这条观点如何改变理解”
-
-### 3. 真实用法
-
-- 找今天值得抄作业的工作流、案例、经验
-- 优先真实场景，少要纯演示
-
-### 4. 机会
-
-- 识别哪些信号值得转成工作实验、内容选题或小生意假设
-
-## 产出要求
-
-创建情报简报：
-
-- 路径: `50_资源/信号简报/YYYY-MM/YYYY-MM-DD-信号简报.md`
-- 模板: `99_系统/模板/情报简报模板.md`
-
-每条高价值信号都必须包含：
-
-- 标题
-- 原始来源链接
-- 为什么重要
-- 建议去向：`待办 | 项目 | 研究 | 知识卡 | 内容素材`
-
-## 排序标准
-
-优先保留：
-
-- 能直接用于用户的工作和生活
-- 能帮助形成自己的判断
-- 能进入 `60_内容中台/`
-- 能在短时间内做小实验
-
-默认降权：
-
-- 只有热度，没有方法
-- 只有参数，没有场景
-- 只是重复已有观点
-
-## 自动联动
-
-如果发现特别值得处理的信号：
-
-- 创建对应的 `00_收件箱/` 条目
-- 或直接进入 `60_内容中台/00_选题池/`
-
-不要一次创建太多条目。默认只把最值得推进的少数线索送进系统。
-
-## 重要规则
-
-- 不要把它做成泛泛的 AI 新闻号摘要
-- 必须有你的判断，不只是转述
-- 必须区分“新闻”、“观点”、“用法”、“机会”
-- 默认保留少量高信号，不追求穷尽
-- 涉及隐私、家庭、工作敏感信息时，只保留在内部层
-
-## 输出格式
-
-用中文简洁汇报：
-
-```markdown
-## 今日信号已生成
-
-**简报:** [[YYYY-MM-DD-信号简报]]
-
-**最值得处理的 5 条**
-- [标题] - 为什么重要 - 建议去向
-- [标题] - 为什么重要 - 建议去向
-- [标题] - 为什么重要 - 建议去向
-- [标题] - 为什么重要 - 建议去向
-- [标题] - 为什么重要 - 建议去向
-
-**建议下一步**
-- 先运行 `triage-inbox`
-- 从 1 条最值得的机会开始做实验
-```
+- Use public source material only.
+- Keep raw sources separate from durable judgments.
+- Avoid storing account tokens, cookies, private URLs, or unpublished work material.
+- Run `scripts/validate-write.mjs` when new Markdown files are created.

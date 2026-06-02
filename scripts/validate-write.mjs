@@ -36,7 +36,7 @@ for (const filePath of files) {
     }
   }
 
-  if (relative.includes("00_收件箱") && !text.includes("status:")) {
+  if (relative.includes("00_Inbox") && !text.includes("status:")) {
     report("FAIL", relative, "inbox note missing status frontmatter");
     failures += 1;
   }

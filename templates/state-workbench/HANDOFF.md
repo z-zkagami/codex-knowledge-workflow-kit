@@ -9,43 +9,43 @@ from_session:
 to_session:
 ---
 # HANDOFF
-> 只在准备切窗口、切会话、或需要交给另一个 agent / 明天的自己时更新。
+> Update this when switching windows, sessions, agents, or handing work to your future self.
 
-## 当前交接对象
-- 主题 / 任务：
-- 当前阶段：
-- 现在最接近的目标：
+## Handoff Target
+- Topic or task:
+- Current phase:
+- Nearest goal:
 
-## 五句话摘要
+## Five-Sentence Brief
 1. 
 2. 
 3. 
 4. 
 5. 
 
-## 接手前先看
+## Read First
 - `_state/CURRENT.md`
 - `_state/DECISIONS.md`
-- 必读资料：
-- 暂时不用读的旧材料：
+- Must-read sources:
+- Older material to skip for now:
 
-## 必须保持不变
-- 已确认口径：
-- 已确认结构：
-- 不能回退的决定：
-- 不能遗漏的来源：
+## Keep Stable
+- Confirmed framing:
+- Confirmed structure:
+- Decisions that should stay in force:
+- Sources that must remain included:
 
-## 接下来直接做
+## Next Actions
 1. 
 2. 
 3. 
 
-## 风险与缺口
-- 最大风险：
-- 最可能误判的地方：
-- 当前缺失信息：
+## Risks And Gaps
+- Largest risk:
+- Most likely misread:
+- Missing information:
 
-## 建议续接提示词
+## Suggested Resume Prompt
 ```text
-继续这个任务。先阅读 `_state/CURRENT.md`、`_state/DECISIONS.md`、`_state/HANDOFF.md` 和“接手前先看”里的材料，不要重新发散。先用 5 句话复述当前状态，再直接执行“接下来直接做”。
+Continue this task. Read `_state/CURRENT.md`, `_state/DECISIONS.md`, `_state/HANDOFF.md`, and the files listed under Read First. Restate the current state in five sentences, then execute the Next Actions.
 ```

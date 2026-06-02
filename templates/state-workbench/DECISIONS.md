@@ -7,38 +7,38 @@ workspace:
 topic:
 ---
 # DECISIONS
-> 只追加，不回写历史。每条决定尽量回答“定了什么、为什么、影响哪里”。
+> Append only. Each decision should answer what was decided, why, and what it affects.
 
-## 当前有效决策
+## Active Decisions
 
-### {{date:YYYY-MM-DD}} - [决策标题]
-- 决策：
-- 原因：
-- 影响范围：
-- 相关文件 / 页面：
-- 何时重审：
+### {{date:YYYY-MM-DD}} - [Decision Title]
+- Decision:
+- Reason:
+- Impact:
+- Related files or pages:
+- Review trigger:
 
-### {{date:YYYY-MM-DD}} - [决策标题]
-- 决策：
-- 原因：
-- 影响范围：
-- 相关文件 / 页面：
-- 何时重审：
+### {{date:YYYY-MM-DD}} - [Decision Title]
+- Decision:
+- Reason:
+- Impact:
+- Related files or pages:
+- Review trigger:
 
-## 结构与口径约束
-- 术语统一：
-- 默认读者：
-- 默认语气：
-- 引用 / 来源规则：
-- 隐私 / 风险边界：
+## Structure And Voice Constraints
+- Terminology:
+- Default reader:
+- Default tone:
+- Citation and source rules:
+- Privacy and risk boundaries:
 
-## 放置原则
-- 什么留在 `llm-wiki` 或专题工作区：
-- 什么晋升到 `40_知识库`：
-- 什么进入 `60_内容中台`：
+## Placement Rules
+- Stays in `llm-wiki` or topic workspace:
+- Promotes to `40_Knowledge`:
+- Moves into `60_Content`:
 
-## 已放弃方案
+## Rejected Options
 
-### [方案名]
-- 不采用原因：
-- 以后什么条件下再考虑：
+### [Option Name]
+- Reason:
+- Reconsider when:

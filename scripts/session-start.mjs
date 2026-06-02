@@ -46,9 +46,9 @@ function rel(filePath) {
   return path.relative(vaultRoot, filePath);
 }
 
-const northStar = await readSnippet(path.join(vaultRoot, "99_系统", "记忆", "North Star.md"));
+const northStar = await readSnippet(path.join(vaultRoot, "99_System", "Memory", "North Star.md"));
 const currentFiles = await walk(vaultRoot, (filePath) => filePath.endsWith(path.join("_state", "CURRENT.md")), 6);
-const briefFiles = await walk(path.join(vaultRoot, "50_资源", "信号简报"), (filePath) => filePath.endsWith(".md"), 5);
+const briefFiles = await walk(path.join(vaultRoot, "50_Resources", "Signal_Briefs"), (filePath) => filePath.endsWith(".md"), 5);
 
 const lines = [
   "# Persistent Memory Context",
@@ -80,7 +80,7 @@ if (briefFiles.length) {
 
 lines.push("## Routing Reminder", "");
 lines.push("- Use AGENTS.md for stable rules.");
-lines.push("- Use 99_系统/记忆 for durable cross-session memory.");
+lines.push("- Use 99_System/Memory for durable cross-session memory.");
 lines.push("- Use _state files for active project continuity.");
 lines.push("- Use QMD for semantic recall when exact paths are unknown.");
 

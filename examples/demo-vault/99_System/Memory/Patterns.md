@@ -10,5 +10,5 @@ tags:
 
 - Store stable rules in `AGENTS.md`.
 - Store long-running project continuity in `_state/`.
-- Promote durable concepts from `30_研究` into `40_知识库`.
+- Promote durable concepts from `30_Research` into `40_Knowledge`.
 - Validate structure before publishing vault changes.

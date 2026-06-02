@@ -9,53 +9,53 @@ topic:
 phase:
 ---
 # CURRENT
-> 适用场景：研究专题、知识编译、架构图整理、汇报材料、公众号选题与成稿。
-> 建议放置位置：`30_研究/<主题>/_state/` 或 `60_内容中台/<渠道>/<年份>/<专题>/_state/`。
+> Use this for research topics, knowledge compilation, architecture notes, reports, content planning, and draft production.
+> Recommended location: `30_Research/<topic>/_state/` or `60_Content/<channel>/<year>/<topic>/_state/`.
 
-## 当前任务
-- 名称：
-- 当前阶段：
-- 当前状态：`进行中 / 阻塞 / 待确认 / 待收尾`
-- 一句话说明：
+## Current Task
+- Name:
+- Phase:
+- Status: `in-progress / blocked / needs-confirmation / closing`
+- One-line brief:
 
-## 任务边界
-- 这次要产出的结果：
-- 成功标准：
-- 这次明确不做：
+## Task Boundary
+- Expected output:
+- Success criteria:
+- Out of scope:
 
-## 场景与受众
-- 使用场景：
-- 目标读者 / 对象：
-- 语气 / 风格要求：
+## Context And Audience
+- Use case:
+- Target reader or stakeholder:
+- Tone and style requirements:
 
-## 工作区与链接
-- 主目录：
-- 索引页 / 入口页：
-- 相关项目 / 选题卡：
-- 相关日记：
-- 相关知识卡 / 研究页：
+## Workspace Links
+- Main directory:
+- Index or entry page:
+- Related project or topic card:
+- Related daily note:
+- Related wiki or research page:
 
-## 输入材料
-- 必读资料：
-- 可参考资料：
-- 关键来源路径：
-- 仍缺的资料：
+## Inputs
+- Must-read sources:
+- Optional references:
+- Key source paths:
+- Missing sources:
 
-## 当前判断
-- 当前最核心的判断：
-- 已确认约束：
-- 仍不确定的点：
-- 当前最大风险：
+## Current Judgment
+- Core judgment:
+- Confirmed constraints:
+- Open uncertainties:
+- Largest risk:
 
-## 进展
-- 已完成：
-- 正在做：
-- 下一步 1：
-- 下一步 2：
-- 下一步 3：
+## Progress
+- Done:
+- In progress:
+- Next step 1:
+- Next step 2:
+- Next step 3:
 
-## 输出形态
-- 输出类型：`研究索引 / 调研摘要 / 架构图说明 / 汇报材料 / 公众号文章 / 选题卡 / 知识卡`
-- 推荐结构：
-- 必须包含：
-- 禁止出现：
+## Output Shape
+- Output type: `research index / research brief / architecture note / report / article / topic card / wiki card`
+- Recommended structure:
+- Must include:
+- Must avoid:

@@ -13,7 +13,7 @@ It turns an Obsidian-style Markdown vault into a versioned, searchable, editable
 The vault stores durable working memory:
 
 * `AGENTS.md` defines project rules and collaboration behavior
-* `99_系统/记忆/` stores north star, memories, decisions, patterns, gotchas, and skill notes
+* `99_System/Memory/` stores north star, memories, decisions, patterns, gotchas, and skill notes
 * `_state/CURRENT.md`, `_state/DECISIONS.md`, and `_state/HANDOFF.md` preserve topic and project continuity
 * `vault-manifest.json` describes the vault shape, required files, QMD index, and validation rules
 
@@ -38,7 +38,7 @@ QMD and local embeddings make vault memory searchable:
 
 ## What It Provides
 
-* A CN-style demo vault for inbox, daily notes, projects, research, wiki, resources, content, plans, and system memory
+* A Obsidian-style demo vault for inbox, daily notes, projects, research, wiki, resources, content, plans, and system memory
 * Codex hook examples for session start, prompt classification, memory injection, write validation, and stop checks
 * Scripts for structure checks, session context injection, prompt-based memory injection, message classification, Markdown validation, RSS capture, Flomo import, QMD embedding, and shared Python environments
 * Tool adapters for Codex, Claude Code, Gemini CLI, and Cursor
@@ -51,7 +51,7 @@ external signals
   -> daily-signals
   -> triage-inbox
   -> project / research / wiki / content / archive
-  -> _state + 99_系统/记忆 + QMD
+  -> _state + 99_System/Memory + QMD
   -> next agent session resumes from persistent memory
 ```
 
@@ -69,6 +69,7 @@ examples/demo-vault/      Public demo vault
 docs/                     Workflow and persistent memory notes
 docs/demo-scenario.md     End-to-end cross-session memory demo
 docs/extending.md         Extension model and adapter guide
+docs/obsidian-plugins.md  Recommended Obsidian plugin stack
 NOTICE.md                 Original project attribution
 LICENSE                   MIT license with original and customized notices
 ```
@@ -90,14 +91,14 @@ node scripts/init-kit.mjs --vault "$HOME/path/to/my-vault" --tool all
 Run the structure check against the bundled demo vault:
 
 ```bash
-bash scripts/check_cn_layout.sh
+bash scripts/check_layout.sh
 ```
 
 Use a real vault:
 
 ```bash
 export CKW_VAULT_ROOT="$HOME/path/to/my-vault"
-bash scripts/check_cn_layout.sh
+bash scripts/check_layout.sh
 ```
 
 Preview session-start memory context:
@@ -109,19 +110,19 @@ node scripts/session-start.mjs
 Classify a prompt into workflow hints:
 
 ```bash
-node scripts/classify-message.mjs "整理今天的 AI 信号，看看哪些值得进入研究"
+node scripts/classify-message.mjs "Review today's AI signals and route the items worth researching"
 ```
 
 Inject relevant vault memory for a prompt:
 
 ```bash
-node scripts/memory-inject.mjs "agent workflow capture 长期研究"
+node scripts/memory-inject.mjs "agent workflow capture long-running research"
 ```
 
 Validate Markdown writes:
 
 ```bash
-node scripts/validate-write.mjs examples/demo-vault/00_收件箱/2026-06-02-agent-workflow-capture.md
+node scripts/validate-write.mjs examples/demo-vault/00_Inbox/2026-06-02-agent-workflow-capture.md
 ```
 
 Walk through the full memory loop:
@@ -134,6 +135,12 @@ Review extension points:
 
 ```bash
 open docs/extending.md
+```
+
+Review the recommended Obsidian plugin stack:
+
+```bash
+open docs/obsidian-plugins.md
 ```
 
 Create shared Python environment roots:

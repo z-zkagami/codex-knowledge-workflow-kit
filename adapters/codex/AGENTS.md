@@ -30,6 +30,6 @@ node "$CKW_KIT_ROOT/scripts/validate-write.mjs" "<changed-file.md>"
 ## Durable Memory
 
 * Stable rules live in `AGENTS.md`.
-* Durable memory lives in `99_系统/记忆/`.
+* Durable memory lives in `99_System/Memory/`.
 * Project continuity lives in `_state/CURRENT.md`, `_state/DECISIONS.md`, and `_state/HANDOFF.md`.
 * Searchable recall uses QMD when available.

@@ -4,15 +4,15 @@ Act as a local-first knowledge workflow operator. Keep inputs moving through cap
 
 ## Structure
 
-* `00_收件箱`: quick captures and imported signals, processed by `triage-inbox`
-* `10_日记`: daily logs and work journals
-* `20_项目`: active projects using C.A.P. layout
-* `30_研究`: persistent topic workspaces, including `llm-wiki`
-* `40_知识库`: atomic concepts and reusable judgments
-* `50_资源`: curated signals, newsletters, style references, and staging
-* `60_内容中台`: public output pipelines such as articles and social posts
-* `90_计划`: execution plans
-* `99_系统`: templates, rules, and archives
+* `00_Inbox`: quick captures and imported signals, processed by `triage-inbox`
+* `10_Daily`: daily logs and work journals
+* `20_Projects`: active projects using C.A.P. layout
+* `30_Research`: persistent topic workspaces, including `llm-wiki`
+* `40_Knowledge`: atomic concepts and reusable judgments
+* `50_Resources`: curated signals, newsletters, style references, and staging
+* `60_Content`: public output pipelines such as articles and social posts
+* `90_Plans`: execution plans
+* `99_System`: templates, rules, and archives
 
 ## Core Workflows
 
@@ -40,8 +40,8 @@ Act as a local-first knowledge workflow operator. Keep inputs moving through cap
 ## Rules
 
 * Preserve original source material and keep AI synthesis separate from human judgment.
-* Promote stable findings from `30_研究` into `40_知识库`.
+* Promote stable findings from `30_Research` into `40_Knowledge`.
 * Keep long-running topics stateful with `CURRENT.md`, `DECISIONS.md`, and `HANDOFF.md`.
-* Run `bash scripts/check_cn_layout.sh` before publishing structure changes.
+* Run `bash scripts/check_layout.sh` before publishing structure changes.
 * Use `CKW_VAULT_ROOT` to point scripts at a real vault.
 * Keep private notes, tokens, raw sync states, and unpublished work outside the public repository.

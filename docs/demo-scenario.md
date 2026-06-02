@@ -19,7 +19,7 @@ A user captures a public note about local-first AI agent workflows. The agent ro
 The input lands in:
 
 ```text
-examples/demo-vault/00_收件箱/2026-06-02-agent-workflow-capture.md
+examples/demo-vault/00_Inbox/2026-06-02-agent-workflow-capture.md
 ```
 
 The note has YAML frontmatter with `type`, `created`, `status`, `source_type`, and `recommended_destination`.
@@ -29,7 +29,7 @@ The note has YAML frontmatter with `type`, `created`, `status`, `source_type`, a
 Run:
 
 ```bash
-node scripts/classify-message.mjs "整理这个 agent workflow capture，判断是否进入长期研究"
+node scripts/classify-message.mjs "Review this agent workflow capture and decide whether it belongs in long-running research"
 ```
 
 Expected workflow hints:
@@ -46,7 +46,7 @@ The agent now has a concrete route instead of treating the item as a generic not
 Run:
 
 ```bash
-node scripts/memory-inject.mjs "agent workflow capture 长期研究"
+node scripts/memory-inject.mjs "agent workflow capture long-running research"
 ```
 
 The script reads the demo vault and returns:
@@ -62,12 +62,12 @@ This gives the agent enough working context to continue without re-reading the f
 The capture points to:
 
 ```text
-examples/demo-vault/30_研究/ai-agent-workflows/
+examples/demo-vault/30_Research/ai-agent-workflows/
 ```
 
 The research workspace keeps:
 
-* `00_索引.md` for topic scope
+* `00_Index.md` for topic scope
 * `_state/CURRENT.md` for active focus
 * `_state/DECISIONS.md` for durable decisions
 * `_state/HANDOFF.md` for next-session continuity
@@ -77,7 +77,7 @@ The research workspace keeps:
 The stable concept lands in:
 
 ```text
-examples/demo-vault/40_知识库/AI Agent Workflow.md
+examples/demo-vault/40_Knowledge/AI Agent Workflow.md
 ```
 
 This separates reusable knowledge from transient research notes.
@@ -87,12 +87,12 @@ This separates reusable knowledge from transient research notes.
 The system memory layer keeps project-level continuity:
 
 ```text
-examples/demo-vault/99_系统/记忆/North Star.md
-examples/demo-vault/99_系统/记忆/Memories.md
-examples/demo-vault/99_系统/记忆/Key Decisions.md
-examples/demo-vault/99_系统/记忆/Patterns.md
-examples/demo-vault/99_系统/记忆/Gotchas.md
-examples/demo-vault/99_系统/记忆/Skills.md
+examples/demo-vault/99_System/Memory/North Star.md
+examples/demo-vault/99_System/Memory/Memories.md
+examples/demo-vault/99_System/Memory/Key Decisions.md
+examples/demo-vault/99_System/Memory/Patterns.md
+examples/demo-vault/99_System/Memory/Gotchas.md
+examples/demo-vault/99_System/Memory/Skills.md
 ```
 
 These files stay small and stable so future sessions can load them cheaply.
@@ -103,7 +103,7 @@ Run:
 
 ```bash
 npm run check:layout
-node scripts/validate-write.mjs examples/demo-vault/00_收件箱/2026-06-02-agent-workflow-capture.md
+node scripts/validate-write.mjs examples/demo-vault/00_Inbox/2026-06-02-agent-workflow-capture.md
 ```
 
 The validation checks structure, frontmatter, sensitive paths, obvious token shapes, and inbox status fields.

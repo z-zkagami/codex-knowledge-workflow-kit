@@ -20,6 +20,6 @@ node "$CKW_KIT_ROOT/scripts/memory-inject.mjs" "<prompt>"
 
 * Keep stable project instructions concise.
 * Keep user-specific preferences in Claude native memory.
-* Keep shared project memory in `99_系统/记忆/`.
+* Keep shared project memory in `99_System/Memory/`.
 * Keep task continuity near the work in `_state/`.
 * Validate Markdown writes before committing.

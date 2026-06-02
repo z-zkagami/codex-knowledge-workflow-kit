@@ -22,7 +22,7 @@ for (const filePath of markdownFiles) {
 
 scored.sort((a, b) => b.score - a.score || a.relative.localeCompare(b.relative));
 
-const northStarPath = path.join(vaultRoot, "99_系统", "记忆", "North Star.md");
+const northStarPath = path.join(vaultRoot, "99_System", "Memory", "North Star.md");
 const northStar = await readSnippet(northStarPath, 900);
 const currentFiles = await collectMatching(vaultRoot, (filePath) => filePath.endsWith(path.join("_state", "CURRENT.md")), 6);
 
@@ -32,7 +32,7 @@ if (query.trim()) lines.push(`Query: ${query.trim().slice(0, 300)}`);
 lines.push("");
 
 if (northStar) {
-  lines.push("## Always-On Memory", "", "### 99_系统/记忆/North Star.md", northStar, "");
+  lines.push("## Always-On Memory", "", "### 99_System/Memory/North Star.md", northStar, "");
 }
 
 if (currentFiles.length) {
@@ -45,7 +45,7 @@ if (currentFiles.length) {
 }
 
 const relevant = scored
-  .filter((item) => item.relative !== "99_系统/记忆/North Star.md")
+  .filter((item) => item.relative !== "99_System/Memory/North Star.md")
   .slice(0, 5);
 
 if (relevant.length) {
@@ -63,7 +63,7 @@ lines.push("## Use This Context For", "");
 lines.push("- recovering project direction");
 lines.push("- choosing the next workflow");
 lines.push("- avoiding duplicate research");
-lines.push("- updating _state or 99_系统/记忆 after durable changes");
+lines.push("- updating _state or 99_System/Memory after durable changes");
 
 process.stdout.write(`${lines.join("\n")}\n`);
 
@@ -95,7 +95,7 @@ function tokens(text) {
 
 function scoreFile(relative, text, queryTokens) {
   const haystack = `${relative}\n${text}`.toLowerCase();
-  const pathBoost = relative.includes("99_系统/记忆/") || relative.includes("_state/") ? 2 : 0;
+  const pathBoost = relative.includes("99_System/Memory/") || relative.includes("_state/") ? 2 : 0;
   if (!queryTokens.length) return pathBoost;
   let score = pathBoost;
   for (const token of queryTokens) {

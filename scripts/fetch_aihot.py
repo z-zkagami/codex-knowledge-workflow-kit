@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch AI HOT public RSS feeds into the CN newsletter archive."""
+"""Fetch AI HOT public RSS feeds into the newsletter archive."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 
 
 VAULT_ROOT = Path(os.environ.get("CKW_VAULT_ROOT", Path.cwd() / "examples" / "demo-vault"))
-NEWSLETTERS_ROOT = VAULT_ROOT / "50_资源" / "Newsletters"
+NEWSLETTERS_ROOT = VAULT_ROOT / "50_Resources" / "Newsletters"
 TZ = ZoneInfo("Asia/Shanghai")
 
 FEEDS = {
@@ -125,30 +125,30 @@ def render_markdown(
         "  - ai",
         "  - aihot",
         "---",
-        f"# {date_text} AI HOT 抓取摘要",
+        f"# {date_text} AI HOT Fetch Summary",
         "",
-        f"- 抓取时间：{fetched_at}",
-        "- 接入方式：公开 RSS",
-        "- 站点入口：https://aihot.virxact.com/agent",
+        f"- Fetched at: {fetched_at}",
+        "- Access method: public RSS",
+        "- Site: https://aihot.virxact.com/agent",
         "",
     ]
 
     if warnings:
-        lines.extend(["## 抓取警告", ""])
+        lines.extend(["## Fetch Warnings", ""])
         for source, warning in warnings.items():
-            lines.append(f"- {source}：{warning}")
+            lines.append(f"- {source}: {warning}")
         lines.append("")
 
     for source, items in source_items.items():
-        lines.extend([f"## {source}", "", f"- 条目数：{len(items)}", ""])
+        lines.extend([f"## {source}", "", f"- Item count: {len(items)}", ""])
         for idx, item in enumerate(items[:30], start=1):
-            lines.append(f"### {idx}. {item.title or item.guid or '未命名条目'}")
+            lines.append(f"### {idx}. {item.title or item.guid or 'Untitled item'}")
             if item.pub_date:
-                lines.append(f"- 时间：{item.pub_date}")
+                lines.append(f"- Time: {item.pub_date}")
             if item.author:
-                lines.append(f"- 来源：{item.author}")
+                lines.append(f"- Source: {item.author}")
             if item.link:
-                lines.append(f"- 链接：{item.link}")
+                lines.append(f"- Link: {item.link}")
             if item.description:
                 lines.extend(["", item.description])
             lines.append("")
@@ -157,7 +157,7 @@ def render_markdown(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Fetch AI HOT RSS feeds into 50_资源/Newsletters.")
+    parser = argparse.ArgumentParser(description="Fetch AI HOT RSS feeds into 50_Resources/Newsletters.")
     parser.add_argument("--date", default=datetime.now(TZ).strftime("%Y-%m-%d"), help="archive date, default today")
     parser.add_argument("--include-all", action="store_true", help="also fetch the full AI HOT feed")
     parser.add_argument("--delay", type=float, default=10.0, help="seconds between feed requests")
@@ -168,7 +168,7 @@ def main() -> int:
         feeds.update(ALL_FEED)
 
     month_dir = month_dir_for(args.date)
-    raw_dir = month_dir / "原始数据"
+    raw_dir = month_dir / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
 
     fetched_at = datetime.now(TZ).strftime("%Y-%m-%d %H:%M:%S %Z")
@@ -183,7 +183,7 @@ def main() -> int:
             xml_text = fetch_url(url)
         except urllib.error.HTTPError as exc:
             if exc.code == 304:
-                warnings[source] = "源端返回 304 Not Modified，未提供 XML 内容"
+                warnings[source] = "Source returned HTTP 304 Not Modified without XML content"
                 print(f"warning={source}: HTTP 304 Not Modified")
                 continue
             warnings[source] = f"HTTP {exc.code}: {exc.reason}"
@@ -201,7 +201,7 @@ def main() -> int:
             print(f"{source}=0 ({warning})")
         return 1
 
-    summary_path = month_dir / f"{args.date}_AI-HOT-摘要.md"
+    summary_path = month_dir / f"{args.date}_AI-HOT-summary.md"
     summary_path.write_text(render_markdown(args.date, fetched_at, source_items, warnings), encoding="utf-8")
 
     print(f"summary={summary_path}")

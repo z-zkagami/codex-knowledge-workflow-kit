@@ -18,4 +18,4 @@ Collect examples of local-first agent workflows that keep source material, AI sy
 
 ## Next Step
 
-Run `triage-inbox` and route this item into `30_研究/ai-agent-workflows`.
+Run `triage-inbox` and route this item into `30_Research/ai-agent-workflows`.

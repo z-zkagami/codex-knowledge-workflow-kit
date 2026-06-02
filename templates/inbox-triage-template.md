@@ -4,23 +4,23 @@ date: {{date:YYYY-MM-DD}}
 created: {{date:YYYY-MM-DD HH:mm}}
 item_count: 0
 ---
-# 收件箱分诊 {{date:YYYY-MM-DD}}
+# Inbox Triage {{date:YYYY-MM-DD}}
 
-## 今日结论
+## Today's Outcome
 
-- 待办:
-- 项目:
-- 研究:
-- 知识卡:
-- 内容素材:
-- 归档:
+- Action:
+- Project:
+- Research:
+- Knowledge:
+- Content:
+- Archive:
 
-## 分诊明细
+## Triage Details
 
-| 条目 | 去向 | 置信度 | 原因 | 下一步 |
+| Item | Destination | Confidence | Reason | Next Step |
 | --- | --- | --- | --- | --- |
-| [[示例条目]] | 内容素材 | 高 | 有明确观点和传播性 | 进入 `60_内容中台/00_选题池/` |
+| [[Example Item]] | Content | High | Clear argument and distribution value | Move to `60_Content/00_Topic_Pool/` |
 
-## 需要复盘的误判
+## Misclassifications To Review
 
 - 

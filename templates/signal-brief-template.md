@@ -5,41 +5,41 @@ created: {{date:YYYY-MM-DD HH:mm}}
 focus: []
 sources: []
 ---
-# 今日信号简报 {{date:YYYY-MM-DD}}
+# Daily Signal Brief {{date:YYYY-MM-DD}}
 
-> 目标不是多，而是把今天最值得处理的信号挑出来。
+> The goal is signal selection, not volume.
 
-## 今天最值得看
+## Top Signals
 
-- **标题**  
-  来源: [链接](https://example.com)  
-  为什么重要:  
-  建议去向: `待办 | 项目 | 研究 | 知识卡 | 内容素材`
+- **Title**
+  Source: [link](https://example.com)
+  Why it matters:
+  Suggested route: `action | project | research | knowledge | content`
 
-## KOL 观点
+## Expert Viewpoints
 
-- **谁说了什么**  
-  来源: [链接](https://example.com)  
-  我的关注点:  
-  可进入主库吗:
+- **Who said what**
+  Source: [link](https://example.com)
+  Why I care:
+  Should this enter the vault:
 
-## 真实用法
+## Real Usage
 
-- **别人怎么把 AI 用起来了**  
-  来源: [链接](https://example.com)  
-  我可以抄哪一步:  
-  适用场景:
+- **How someone used AI in practice**
+  Source: [link](https://example.com)
+  What can be copied:
+  Applicable context:
 
-## 机会假设
+## Opportunity Hypotheses
 
-- **机会名**  
-  判断:  
-  适合快速实验吗: 是 / 否  
-  最小动作:
+- **Opportunity name**
+  Judgment:
+  Fit for quick experiment: yes / no
+  Smallest next action:
 
-## 建议分流
+## Suggested Routing
 
-- [ ] 放入 `00_收件箱/`
-- [ ] 进入 `30_研究/`
-- [ ] 晋升到 `40_知识库/`
-- [ ] 放入 `60_内容中台/00_选题池/`
+- [ ] Add to `00_Inbox/`
+- [ ] Move into `30_Research/`
+- [ ] Promote to `40_Knowledge/`
+- [ ] Add to `60_Content/00_Topic_Pool/`

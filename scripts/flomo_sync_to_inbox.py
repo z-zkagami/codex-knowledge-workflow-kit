@@ -123,7 +123,7 @@ def derive_title(markdown_text: str, tags: Iterable[str], slug: str) -> str:
             return candidate[:80]
     tags = [tag.strip() for tag in tags if tag.strip()]
     if tags:
-        return f"{tags[0]} 记录"
+        return f"{tags[0]} note"
     return f"flomo memo {slug}"
 
 
@@ -136,7 +136,7 @@ def infer_source_type(markdown_text: str) -> str:
 
 
 def infer_signal_type(source_type: str) -> str:
-    return "灵感" if source_type == "idea" else "记录"
+    return "idea" if source_type == "idea" else "note"
 
 
 def sanitize_filename_component(value: str, max_length: int = 32) -> str:
@@ -219,7 +219,7 @@ def render_note(memo: Dict[str, object]) -> str:
         "privacy: internal",
         "actionability: medium",
         "recommended_destination:",
-        "next_step: 运行 `triage-inbox` 进行分诊",
+        "next_step: Run `triage-inbox` to route this capture",
         "related:",
         "tags:",
     ]
@@ -233,33 +233,33 @@ def render_note(memo: Dict[str, object]) -> str:
             "",
             f"# {title}",
             "",
-            "## 原始输入",
+            "## Raw Input",
             "",
-            markdown_text or "（空白 memo）",
+            markdown_text or "(blank memo)",
             "",
-            "## 捕获元数据",
+            "## Capture Metadata",
             "",
             f"- flomo slug: `{slug}`",
-            f"- 创建时间: `{created_at}`",
-            f"- 最近更新: `{updated_at}`",
-            f"- 采集来源: `{memo.get('source') or 'unknown'}`",
+            f"- Created at: `{created_at}`",
+            f"- Updated at: `{updated_at}`",
+            f"- Capture source: `{memo.get('source') or 'unknown'}`",
         ]
     )
     if attachments:
-        lines.extend(["", "## 附件", ""])
+        lines.extend(["", "## Attachments", ""])
         for index, file_info in enumerate(attachments, start=1):
             url = ""
             if isinstance(file_info, dict):
                 url = str(file_info.get("url") or file_info.get("thumbnail_url") or "")
             if url:
-                lines.append(f"- [附件 {index}]({url})")
+                lines.append(f"- [Attachment {index}]({url})")
     if deleted:
         lines.extend(
             [
                 "",
-                "## 删除状态",
+                "## Deleted State",
                 "",
-                "该 memo 已在 flomo 中删除，当前仅保留这份收件箱副本以便后续人工判断是否归档。",
+                "This memo was deleted in flomo. This inbox copy remains for later manual archive review.",
             ]
         )
     lines.append("")
@@ -312,7 +312,7 @@ def build_signed_params(
     limit: int,
 ) -> Dict[str, object]:
     if not FLOMO_SECRET:
-        raise RuntimeError("请先设置 FLOMO_SECRET 环境变量。")
+        raise RuntimeError("Set the FLOMO_SECRET environment variable first.")
     app_config = config.get("appConfig") or {}
     params = {
         "limit": limit,
@@ -343,7 +343,7 @@ def fetch_updated_memos(
     user = config.get("user") or {}
     access_token = user.get("access_token")
     if not access_token:
-        raise RuntimeError("无法从 flomo 配置中读取 access_token。")
+        raise RuntimeError("Could not read access_token from the flomo config.")
 
     params = build_signed_params(config, latest_updated_at, latest_slug, limit)
     url = f"{FLOMO_API_BASE}/memo/updated/?{urllib.parse.urlencode(params)}"
@@ -354,7 +354,7 @@ def fetch_updated_memos(
     with urllib.request.urlopen(request, timeout=30) as response:
         payload = json.loads(response.read().decode("utf-8"))
     if payload.get("code") not in (0, None):
-        raise RuntimeError(f"flomo API 返回异常: {payload.get('message')}")
+        raise RuntimeError(f"flomo API returned an error: {payload.get('message')}")
     return list(payload.get("data") or [])
 
 
@@ -423,7 +423,7 @@ def run_sync(
     dry_run: bool,
 ) -> Dict[str, object]:
     config = load_flomo_config(config_path)
-    inbox_dir = vault_root / "00_收件箱"
+    inbox_dir = vault_root / "00_Inbox"
     state = SyncState.load(state_path)
 
     if state.cursor_updated_at:
