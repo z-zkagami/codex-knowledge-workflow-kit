@@ -1,0 +1,15 @@
+{
+  "name": "claude-code",
+  "displayName": "Claude Code",
+  "description": "Claude Code adapter using CLAUDE.md and path-scoped rules.",
+  "files": [
+    {
+      "source": "CLAUDE.md",
+      "target": "CLAUDE.md"
+    },
+    {
+      "source": ".claude/rules/persistent-memory.md",
+      "target": ".claude/rules/persistent-memory.md"
+    }
+  ]
+}

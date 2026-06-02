@@ -35,6 +35,18 @@
 
 ## 快速检查
 
+初始化真实知识库，并安装 Codex adapter：
+
+```bash
+node scripts/init-kit.mjs --vault "$HOME/path/to/my-vault" --tool codex
+```
+
+安装全部内置 adapter：
+
+```bash
+node scripts/init-kit.mjs --vault "$HOME/path/to/my-vault" --tool all
+```
+
 ```bash
 bash scripts/check_cn_layout.sh
 ```
@@ -74,6 +86,12 @@ node scripts/validate-write.mjs examples/demo-vault/00_收件箱/2026-06-02-agen
 
 ```bash
 open docs/demo-scenario.md
+```
+
+查看扩展方式：
+
+```bash
+open docs/extending.md
 ```
 
 ## 开源归属

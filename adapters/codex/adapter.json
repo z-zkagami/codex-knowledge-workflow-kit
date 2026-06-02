@@ -1,0 +1,15 @@
+{
+  "name": "codex",
+  "displayName": "Codex",
+  "description": "Codex adapter using AGENTS.md and Codex hooks.",
+  "files": [
+    {
+      "source": "AGENTS.md",
+      "target": "AGENTS.md"
+    },
+    {
+      "source": ".codex/hooks.json",
+      "target": ".codex/hooks.json"
+    }
+  ]
+}

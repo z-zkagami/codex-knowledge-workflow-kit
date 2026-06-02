@@ -1,0 +1,15 @@
+{
+  "name": "gemini-cli",
+  "displayName": "Gemini CLI",
+  "description": "Gemini CLI adapter using GEMINI.md and local memory notes.",
+  "files": [
+    {
+      "source": "GEMINI.md",
+      "target": "GEMINI.md"
+    },
+    {
+      "source": ".gemini/persistent-memory.md",
+      "target": ".gemini/persistent-memory.md"
+    }
+  ]
+}

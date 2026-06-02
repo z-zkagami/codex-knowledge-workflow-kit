@@ -39,6 +39,7 @@ QMD and local embeddings make vault memory searchable:
 * A CN-style demo vault for inbox, daily notes, projects, research, wiki, resources, content, plans, and system memory
 * Codex hook examples for session start, prompt classification, memory injection, write validation, and stop checks
 * Scripts for structure checks, session context injection, prompt-based memory injection, message classification, Markdown validation, RSS capture, Flomo import, QMD embedding, and shared Python environments
+* Tool adapters for Codex, Claude Code, Gemini CLI, and Cursor
 * Reusable templates for daily notes, projects, wiki cards, inbox items, state handoff, signal briefs, and article drafts
 
 ## Core Loop
@@ -58,17 +59,31 @@ external signals
 AGENTS.md                 Agent operating rules
 .codex/                   Hook examples for Codex
 vault-manifest.json       Vault metadata and validation contract
+adapters/                 Tool-specific adapter files
 skills/                   Reusable Agent Skills
 scripts/                  Local workflow automation
 templates/                Vault and writing templates
 examples/demo-vault/      Public demo vault
 docs/                     Workflow and persistent memory notes
 docs/demo-scenario.md     End-to-end cross-session memory demo
+docs/extending.md         Extension model and adapter guide
 NOTICE.md                 Original project attribution
 LICENSE                   MIT license with original and customized notices
 ```
 
 ## Quick Start
+
+Initialize a real vault with the Codex adapter:
+
+```bash
+node scripts/init-kit.mjs --vault "$HOME/path/to/my-vault" --tool codex
+```
+
+Install every bundled adapter:
+
+```bash
+node scripts/init-kit.mjs --vault "$HOME/path/to/my-vault" --tool all
+```
 
 Run the structure check against the bundled demo vault:
 
@@ -111,6 +126,12 @@ Walk through the full memory loop:
 
 ```bash
 open docs/demo-scenario.md
+```
+
+Review extension points:
+
+```bash
+open docs/extending.md
 ```
 
 Create shared Python environment roots:

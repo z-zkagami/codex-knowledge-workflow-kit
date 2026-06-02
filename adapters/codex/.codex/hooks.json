@@ -1,0 +1,52 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CKW_KIT_ROOT/scripts/session-start.mjs\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CKW_KIT_ROOT/scripts/classify-message.mjs\""
+          },
+          {
+            "type": "command",
+            "command": "node \"$CKW_KIT_ROOT/scripts/memory-inject.mjs\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CKW_KIT_ROOT/scripts/validate-write.mjs\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CKW_KIT_ROOT/scripts/check_cn_layout.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}

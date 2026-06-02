@@ -1,0 +1,11 @@
+{
+  "name": "cursor",
+  "displayName": "Cursor",
+  "description": "Cursor adapter using project rules.",
+  "files": [
+    {
+      "source": ".cursor/rules/persistent-memory.mdc",
+      "target": ".cursor/rules/persistent-memory.mdc"
+    }
+  ]
+}

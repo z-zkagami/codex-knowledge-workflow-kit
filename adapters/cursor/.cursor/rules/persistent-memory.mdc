@@ -1,0 +1,23 @@
+---
+description: Use the vault as persistent memory for AI agent work
+alwaysApply: true
+---
+
+# Persistent Memory
+
+Use this vault as shared cross-tool memory.
+
+Run when context is needed:
+
+```bash
+node "$CKW_KIT_ROOT/scripts/session-start.mjs"
+node "$CKW_KIT_ROOT/scripts/memory-inject.mjs" "<prompt>"
+```
+
+Validate Markdown writes:
+
+```bash
+node "$CKW_KIT_ROOT/scripts/validate-write.mjs" "<changed-file.md>"
+```
+
+Shared memory lives in `99_系统/记忆/`. Active work state lives in `_state/`.

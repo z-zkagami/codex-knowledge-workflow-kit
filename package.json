@@ -5,8 +5,9 @@
   "description": "Kagami's local-first persistent memory layer for AI agents.",
   "license": "MIT",
   "scripts": {
+    "init:vault": "node scripts/init-kit.mjs",
     "check:layout": "bash scripts/check_cn_layout.sh",
     "check:python": "python3 -m py_compile scripts/fetch_aihot.py scripts/flomo_sync_to_inbox.py",
-    "check:node": "node --check scripts/qmd/embed_cn_qwen3.mjs && node --check scripts/session-start.mjs && node --check scripts/classify-message.mjs && node --check scripts/memory-inject.mjs && node --check scripts/validate-write.mjs"
+    "check:node": "node --check scripts/qmd/embed_cn_qwen3.mjs && node --check scripts/init-kit.mjs && node --check scripts/session-start.mjs && node --check scripts/classify-message.mjs && node --check scripts/memory-inject.mjs && node --check scripts/validate-write.mjs"
   }
 }
