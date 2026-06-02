@@ -1,0 +1,50 @@
+{
+  "name": "Codex Knowledge Workflow Kit",
+  "template": "codex-knowledge-workflow-kit",
+  "version": "0.2.0",
+  "description": "A local-first persistent memory layer for AI agents using an Obsidian-style Markdown vault.",
+  "qmd": {
+    "index": "codex-knowledge-workflow-kit",
+    "collection": "ckw-vault",
+    "defaultModel": "hf:Qwen/Qwen3-Embedding-0.6B-GGUF/Qwen3-Embedding-0.6B-Q8_0.gguf"
+  },
+  "roots": {
+    "inbox": "00_收件箱",
+    "daily": "10_日记",
+    "projects": "20_项目",
+    "research": "30_研究",
+    "wiki": "40_知识库",
+    "resources": "50_资源",
+    "content": "60_内容中台",
+    "plans": "90_计划",
+    "system": "99_系统",
+    "memory": "99_系统/记忆"
+  },
+  "infrastructure": [
+    "AGENTS.md",
+    "README.md",
+    "docs/persistent-memory.md",
+    "scripts/check_cn_layout.sh",
+    "scripts/session-start.mjs",
+    "scripts/classify-message.mjs",
+    "scripts/validate-write.mjs"
+  ],
+  "stateFiles": [
+    "_state/CURRENT.md",
+    "_state/DECISIONS.md",
+    "_state/HANDOFF.md"
+  ],
+  "memoryFiles": [
+    "99_系统/记忆/North Star.md",
+    "99_系统/记忆/Memories.md",
+    "99_系统/记忆/Key Decisions.md",
+    "99_系统/记忆/Patterns.md",
+    "99_系统/记忆/Gotchas.md",
+    "99_系统/记忆/Skills.md"
+  ],
+  "requiredFrontmatter": {
+    "inbox": ["type", "created", "status"],
+    "project": ["type", "created", "status"],
+    "wiki": ["type", "created"]
+  }
+}

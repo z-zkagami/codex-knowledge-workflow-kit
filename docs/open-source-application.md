@@ -2,24 +2,24 @@
 
 ## Project Positioning
 
-Codex Knowledge Workflow Kit is a local-first, Codex-native workflow system for developers and knowledge workers who maintain research notes, project plans, content pipelines, and reusable knowledge assets.
+Codex Knowledge Workflow Kit is a local-first persistent memory layer for AI agents. It helps Codex, Claude Code, Gemini CLI, and similar tools resume across sessions from a shared Obsidian-style Markdown vault.
 
 ## Why It Matters
 
-The project turns agent usage from one-off prompting into repeatable repository-backed workflows:
+The project turns one-off agent prompting into repository-backed working memory:
 
-* source intake becomes structured files
-* inbox items get routed instead of accumulating
-* long-running research keeps state
-* knowledge cards become searchable through QMD
-* content production moves through explicit skill gates
+* `AGENTS.md` carries stable rules
+* `99_系统/记忆/` carries durable working memory
+* `_state/` carries active project and research continuity
+* Agent Skills route raw inputs into projects, research, wiki, content, or archive
+* QMD gives semantic recall over the vault
 
 ## How Codex Credits Help
 
 API credits can support:
 
-* improving Agent Skills and workflow templates
-* automated review of PRs that modify scripts or vault rules
+* improving Codex hook scripts and Agent Skills
+* automated review of PRs that modify vault rules, manifests, or validators
 * generating and checking example vaults
 * maintaining QMD embedding and search workflows
-* building public demos for Codex-assisted knowledge operations
+* building public demos for Codex-assisted persistent memory

@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "check:layout": "bash scripts/check_cn_layout.sh",
-    "check:python": "python3 -m py_compile scripts/fetch_aihot.py scripts/flomo_sync_to_inbox.py"
+    "check:python": "python3 -m py_compile scripts/fetch_aihot.py scripts/flomo_sync_to_inbox.py",
+    "check:node": "node --check scripts/qmd/embed_cn_qwen3.mjs && node --check scripts/session-start.mjs && node --check scripts/classify-message.mjs && node --check scripts/validate-write.mjs"
   }
 }

@@ -1,37 +1,68 @@
 # Codex Knowledge Workflow Kit
 
-Codex Knowledge Workflow Kit is Kagami's local-first workflow system for maintaining an Obsidian-style knowledge base with Codex and Agent Skills.
+Codex Knowledge Workflow Kit is Kagami's local-first persistent memory layer for AI agents.
 
-It packages a public, reusable version of the workflow used to move raw inputs into projects, research notes, reusable knowledge cards, and publishable content.
+It turns an Obsidian-style Markdown vault into a versioned, searchable, editable working memory for Codex, Claude Code, Gemini CLI, and other agent tools. Agents can resume across sessions with the same goals, rules, active projects, research state, and output workflows.
+
+## Architecture
+
+### Memory Layer
+
+The vault stores durable working memory:
+
+* `AGENTS.md` defines project rules and collaboration behavior
+* `99_系统/记忆/` stores north star, memories, decisions, patterns, gotchas, and skill notes
+* `_state/CURRENT.md`, `_state/DECISIONS.md`, and `_state/HANDOFF.md` preserve topic and project continuity
+* `vault-manifest.json` describes the vault shape, required files, QMD index, and validation rules
+
+### Workflow Layer
+
+Agent Skills turn raw input into concrete movement:
+
+* `daily-signals` captures public AI signals
+* `triage-inbox` routes captures into action, project, research, knowledge, content, or archive
+* `llm-wiki`, `research`, and `parse-knowledge` maintain long-running topics
+* `wechat-*` skills move material through angle, outline, style, draft, and title gates
+* `archive` keeps active spaces clean
+
+### Retrieval Layer
+
+QMD and local embeddings make vault memory searchable:
+
+* semantic recall over Markdown notes
+* duplicate and related-topic discovery
+* reusable context packs for future agent sessions
+* Qwen3 embedding defaults for Chinese-heavy vaults
 
 ## What It Provides
 
-* A CN-style vault structure for inbox, daily notes, projects, research, wiki, resources, content, and plans
-* `AGENTS.md` rules for Codex-native knowledge maintenance
-* Reusable Agent Skills for signal intake, inbox triage, research, writing, source extraction, and archiving
-* Scripts for structure checks, RSS capture, Flomo import, QMD embedding, and shared Python environments
-* Templates for daily notes, projects, wiki cards, inbox items, state handoff, signal briefs, and article drafts
-* A small demo vault that is safe to inspect and run checks against
+* A CN-style demo vault for inbox, daily notes, projects, research, wiki, resources, content, plans, and system memory
+* Codex hook examples for session start, prompt classification, write validation, and stop checks
+* Scripts for structure checks, session context injection, message classification, Markdown validation, RSS capture, Flomo import, QMD embedding, and shared Python environments
+* Reusable templates for daily notes, projects, wiki cards, inbox items, state handoff, signal briefs, and article drafts
 
-## Core Workflow
+## Core Loop
 
 ```text
 external signals
   -> daily-signals
   -> triage-inbox
-  -> projects / research / wiki / content / archive
-  -> llm-wiki and QMD search for long-running topics
+  -> project / research / wiki / content / archive
+  -> _state + 99_系统/记忆 + QMD
+  -> next agent session resumes from persistent memory
 ```
 
 ## Repository Layout
 
 ```text
-AGENTS.md                 Codex operating rules
+AGENTS.md                 Agent operating rules
+.codex/                   Hook examples for Codex
+vault-manifest.json       Vault metadata and validation contract
 skills/                   Reusable Agent Skills
 scripts/                  Local workflow automation
 templates/                Vault and writing templates
 examples/demo-vault/      Public demo vault
-docs/                     Workflow and publishing notes
+docs/                     Workflow and persistent memory notes
 NOTICE.md                 Original project attribution
 LICENSE                   MIT license with original and customized notices
 ```
@@ -49,6 +80,24 @@ Use a real vault:
 ```bash
 export CKW_VAULT_ROOT="$HOME/path/to/my-vault"
 bash scripts/check_cn_layout.sh
+```
+
+Preview session-start memory context:
+
+```bash
+node scripts/session-start.mjs
+```
+
+Classify a prompt into workflow hints:
+
+```bash
+node scripts/classify-message.mjs "整理今天的 AI 信号，看看哪些值得进入研究"
+```
+
+Validate Markdown writes:
+
+```bash
+node scripts/validate-write.mjs examples/demo-vault/00_收件箱/2026-06-02-agent-workflow-capture.md
 ```
 
 Create shared Python environment roots:
@@ -110,4 +159,4 @@ This repository contains reusable workflow assets and a demo vault. Personal not
 
 ## Attribution
 
-This project started from an existing vault framework and evolved into Kagami's Codex-native knowledge workflow distribution. See `NOTICE.md`.
+This project started from an existing vault framework and evolved into Kagami's persistent memory layer for AI agents. See `NOTICE.md`.
