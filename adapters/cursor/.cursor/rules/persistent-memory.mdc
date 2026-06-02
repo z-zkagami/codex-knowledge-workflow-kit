@@ -20,4 +20,4 @@ Validate Markdown writes:
 node "$CKW_KIT_ROOT/scripts/validate-write.mjs" "<changed-file.md>"
 ```
 
-Shared memory lives in `99_系统/记忆/`. Active work state lives in `_state/`.
+Shared memory lives in `99_System/Memory/`. Active work state lives in `_state/`.

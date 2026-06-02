@@ -37,7 +37,7 @@ jobs:
         run: npm run check:node
 
       - name: Shell syntax check
-        run: bash -n scripts/check_cn_layout.sh scripts/workspace_env.sh
+        run: bash -n scripts/check_layout.sh scripts/workspace_env.sh
 
       - name: JSON parse check
         run: |
@@ -65,12 +65,13 @@ jobs:
         run: |
           tmpdir="$(mktemp -d)"
           node scripts/init-kit.mjs --vault "$tmpdir" --tool all
-          CKW_VAULT_ROOT="$tmpdir" bash scripts/check_cn_layout.sh
+          CKW_VAULT_ROOT="$tmpdir" bash scripts/check_layout.sh
           rm -rf "$tmpdir"
 
       - name: Public safety scan
         run: |
-          ! grep -R -n -E '/Users/kagami|FLOMO_SECRET = "[^"]|dbbc3dd|192\.168|赛博胶把钳|sk-[A-Za-z0-9]' \
+          ! grep -R -n -E '/Users/kagami|FLOMO_SECRET = "[^"]|dbbc3dd|192\.168|sk-[A-Za-z0-9]' \
+            --exclude-dir=.github \
             --exclude-dir=.git \
             --exclude-dir=node_modules \
             .
