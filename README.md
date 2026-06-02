@@ -1,5 +1,7 @@
 # Codex Knowledge Workflow Kit
 
+[![checks](https://github.com/z-zkagami/codex-knowledge-workflow-kit/actions/workflows/checks.yml/badge.svg)](https://github.com/z-zkagami/codex-knowledge-workflow-kit/actions/workflows/checks.yml)
+
 Codex Knowledge Workflow Kit is Kagami's local-first persistent memory layer for AI agents.
 
 It turns an Obsidian-style Markdown vault into a versioned, searchable, editable working memory for Codex, Claude Code, Gemini CLI, and other agent tools. Agents can resume across sessions with the same goals, rules, active projects, research state, and output workflows.
