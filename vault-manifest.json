@@ -24,9 +24,11 @@
     "AGENTS.md",
     "README.md",
     "docs/persistent-memory.md",
+    "docs/demo-scenario.md",
     "scripts/check_cn_layout.sh",
     "scripts/session-start.mjs",
     "scripts/classify-message.mjs",
+    "scripts/memory-inject.mjs",
     "scripts/validate-write.mjs"
   ],
   "stateFiles": [

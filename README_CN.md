@@ -58,10 +58,22 @@ node scripts/session-start.mjs
 node scripts/classify-message.mjs "整理今天的 AI 信号"
 ```
 
+按 prompt 注入相关 vault memory：
+
+```bash
+node scripts/memory-inject.mjs "agent workflow capture 长期研究"
+```
+
 校验 Markdown 写入：
 
 ```bash
 node scripts/validate-write.mjs examples/demo-vault/00_收件箱/2026-06-02-agent-workflow-capture.md
+```
+
+查看完整记忆闭环：
+
+```bash
+open docs/demo-scenario.md
 ```
 
 ## 开源归属

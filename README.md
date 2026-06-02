@@ -37,8 +37,8 @@ QMD and local embeddings make vault memory searchable:
 ## What It Provides
 
 * A CN-style demo vault for inbox, daily notes, projects, research, wiki, resources, content, plans, and system memory
-* Codex hook examples for session start, prompt classification, write validation, and stop checks
-* Scripts for structure checks, session context injection, message classification, Markdown validation, RSS capture, Flomo import, QMD embedding, and shared Python environments
+* Codex hook examples for session start, prompt classification, memory injection, write validation, and stop checks
+* Scripts for structure checks, session context injection, prompt-based memory injection, message classification, Markdown validation, RSS capture, Flomo import, QMD embedding, and shared Python environments
 * Reusable templates for daily notes, projects, wiki cards, inbox items, state handoff, signal briefs, and article drafts
 
 ## Core Loop
@@ -63,6 +63,7 @@ scripts/                  Local workflow automation
 templates/                Vault and writing templates
 examples/demo-vault/      Public demo vault
 docs/                     Workflow and persistent memory notes
+docs/demo-scenario.md     End-to-end cross-session memory demo
 NOTICE.md                 Original project attribution
 LICENSE                   MIT license with original and customized notices
 ```
@@ -94,10 +95,22 @@ Classify a prompt into workflow hints:
 node scripts/classify-message.mjs "整理今天的 AI 信号，看看哪些值得进入研究"
 ```
 
+Inject relevant vault memory for a prompt:
+
+```bash
+node scripts/memory-inject.mjs "agent workflow capture 长期研究"
+```
+
 Validate Markdown writes:
 
 ```bash
 node scripts/validate-write.mjs examples/demo-vault/00_收件箱/2026-06-02-agent-workflow-capture.md
+```
+
+Walk through the full memory loop:
+
+```bash
+open docs/demo-scenario.md
 ```
 
 Create shared Python environment roots:

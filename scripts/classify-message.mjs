@@ -28,7 +28,7 @@ const rules = [
   },
   {
     workflow: "triage-inbox",
-    keywords: ["收件箱", "inbox", "分诊", "整理输入", "处理素材"],
+    keywords: ["收件箱", "inbox", "分诊", "整理输入", "处理素材", "capture", "captured", "route", "路由"],
     hint: "Route pending captures into action, project, research, wiki, content, or archive.",
   },
   {
